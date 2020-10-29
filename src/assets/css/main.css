@@ -1,8 +1,49 @@
+html,
+body {
+  height: 100%;
+}
 #app {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .active {
+  font-weight: bold;
+}
 
-    font-weight: bold;
+.card-product {
+  border-radius: 15px;
+}
+
+.card-img-top {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  /* width: 350px; */
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+  color: black;
+}
+
+.img-fluid {
+  border-radius: 15px;
+}
+
+#app {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+footer {
+  height: 50px;
+  line-height: 50px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
 }

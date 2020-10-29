@@ -21,7 +21,7 @@
             <router-link class="nav-link" exact to="/Keranjang">
             Keranjang
             <b-icon-bag></b-icon-bag>
-            <span class="badge badge-success ml-2">0</span>
+            <span class="badge badge-success ml-2">{{jumlah.length}}</span>
             </router-link>
           </li>
         </ul>
@@ -31,9 +31,47 @@
 </template>
 
 <script>
+
+import axios from 'axios'
 export default {
 
-    name : 'Navbar'
+    name : 'Navbar',
+
+    data(){
+      
+      return{
+
+        jumlah:[],
+
+      }
+    },
+
+    mounted(){
+
+      this.getJumlah()
+
+    },
+
+    methods:{
+
+      async getJumlah(){
+
+        let response = await axios.get('http://localhost:3000/keranjang')
+
+        if (response.status === 200) {
+          
+          this.jumlah = response.data
+
+        }
+
+      }
+
+
+    }
+
+
+    
+
 }
 </script>
 
