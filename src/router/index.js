@@ -6,7 +6,6 @@ import FoodDetail from '../views/FoodDetail.vue'
 import Keranjang from '../views/Keranjang.vue'
 
 
-
 Vue.use(VueRouter)
 
 const routes = [

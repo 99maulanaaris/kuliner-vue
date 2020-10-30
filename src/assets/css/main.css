@@ -47,3 +47,8 @@ footer {
   position: absolute;
   width: 100%;
 }
+
+.tombol {
+  border: none;
+  background-color: transparent;
+}

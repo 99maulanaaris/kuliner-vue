@@ -21,7 +21,7 @@
             <router-link class="nav-link" exact to="/Keranjang">
             Keranjang
             <b-icon-bag></b-icon-bag>
-            <span class="badge badge-success ml-2">{{jumlah.length}}</span>
+            <span class="badge badge-success ml-2">{{update ?update.length:jumlah.length}}</span>
             </router-link>
           </li>
         </ul>
@@ -36,6 +36,8 @@ import axios from 'axios'
 export default {
 
     name : 'Navbar',
+
+    props:['update'],
 
     data(){
       

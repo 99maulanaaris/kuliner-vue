@@ -69,7 +69,10 @@ export default {
       keranjang:{
 
         keterangan:'',
+        
         jumlah:'',
+
+        product:[]
       }
       
 
@@ -98,15 +101,18 @@ export default {
 
       if (this.keranjang.jumlah) {
         
-        await axios.post('http://localhost:3000/keranjang',this.keranjang)
-      
-        this.$toast.success('Berhasil Masuk Keranjang',{
+         await axios.post('http://localhost:3000/keranjang',this.keranjang,this.keranjang.product = this.pesanan)
+          
+          this.$toast.success('Berhasil Masuk Keranjang',{
 
           type:'success',
           duration:3000,
           position:'top-right',
 
         })
+
+        
+      
 
         this.$router.push({path:'/keranjang'})
       
