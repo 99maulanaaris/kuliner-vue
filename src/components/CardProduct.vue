@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">{{product.nama}}</h5>
           <p class="card-text">Harga : Rp.  {{product.harga}}</p>
-          <router-link :to="{ name: 'FoodDetail', params:{id:product.id} }" class="btn btn-success"><b-icon-cart-check></b-icon-cart-check> Pesan</router-link>
+          <router-link :to="{ name: 'FoodDetail', params:{id:product.id} }" class="btn"><b-icon-cart-check></b-icon-cart-check> Pesan</router-link>
         </div>
       </div>
   </div>

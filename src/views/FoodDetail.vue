@@ -28,14 +28,14 @@
           <form method="post" @submit.prevent="store">
             <div class="form-group">
               <label for="jumlah_pesanan">Jumlah Pesan</label>
-              <input type="number" class="form-control" id="jumlah_pesanan" v-model="keranjang.jumlah">
+              <input type="number" class="form-control" id="jumlah_pesanan" v-model="keranjang.jumlah" autocomplete="off">
             </div>
             <div class="form-group">
               <label for="Keterangan">Keterangan</label>
               <textarea v-model="keranjang.keterangan" id="keterangan" rows="5" class="form-control" placeholder="Keterangan Makanan"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-success" ><b-icon-cart-check></b-icon-cart-check> Pesan</button>
+            <button type="submit" class="btn" ><b-icon-cart-check></b-icon-cart-check> Pesan</button>
           </form>
 
         </div>

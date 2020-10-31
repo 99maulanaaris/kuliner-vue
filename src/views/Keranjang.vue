@@ -37,7 +37,7 @@
                 <img :src="`../assets/img/${pesan.product.gambar}`" class="img-fluid" width="200px">
               </td>
               <td>{{pesan.product.nama}}</td>
-              <td>{{pesan.keterangan ? pesan.keteranagan : '-'}}</td>
+              <td>{{pesan.keterangan ? pesan.keterangan : '-'}}</td>
               <td>{{pesan.jumlah}}</td>
               <td>{{pesan.product.harga}}</td>
               <td>
@@ -49,12 +49,31 @@
             </tr>
             <tr>
               <td colspan="6" align="right"><strong>Total Bayar : </strong></td>
-              <td><strong>Rp. {{totalHarga}} </strong></td>
+              <td><strong>Rp. {{totalHarga ? totalHarga : '0'}} </strong></td>
             </tr>
           </tbody>
-
         </table>
       </div>
+       </div>
+     </div>
+
+     <div class="row">
+       <div class="col-md-6">
+
+       </div>
+       <div class="col-md-6">
+         <form method="post" @submit.prevent="simpan">
+            <div class="form-group">
+              <label for="jumlah_pesanan">Nama</label>
+              <input type="text" class="form-control" id="jumlah_pesanan" v-model="pesan.nama" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="Keterangan">Nomer Meja</label>
+              <input type="number" class="form-control" id="jumlah_pesanan" v-model="pesan.noMeja">
+            </div>
+
+            <button type="submit" class="btn" ><b-icon-cart-check></b-icon-cart-check> Pesan</button>
+          </form>
        </div>
      </div>
       
@@ -80,7 +99,13 @@ export default {
     return {
 
       pesanan:[],
-      product:[],
+      pesan:{
+
+        nama:'',
+        noMeja:'',
+        detail:[]
+      },
+
     }
     
   },
@@ -118,6 +143,40 @@ export default {
 
        let response = await axios.get('http://localhost:3000/keranjang')
        this.pesanan = response.data
+
+
+    },
+
+    async simpan(){
+
+      if (this.pesan.nama && this.pesan.noMeja) {
+      
+        await axios.post('http://localhost:3000/pesanan',this.pesan,this.pesan.  detail=this.pesanan)
+
+        this.pesanan.map(p => axios.delete('http://localhost:3000/keranjang/'+ p.id) )
+        
+
+        this.$toast.success('Berhasil Memesan',{
+  
+          type:'success',
+          duration:3000,
+          position:'top-right'
+  
+        })
+
+      this.$router.push('/detail')
+      
+      }else{
+
+         this.$toast.error('Isi Nama Dan No Meja',{
+  
+          type:'error',
+          duration:3000,
+          position:'top-right'
+  
+        })
+      }
+
 
 
     }

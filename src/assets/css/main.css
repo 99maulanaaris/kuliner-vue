@@ -6,6 +6,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.navbar {
+  padding: 10px;
+  font-size: 20px;
+}
+
 .active {
   font-weight: bold;
 }
@@ -17,7 +22,7 @@ body {
 .card-img-top {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  /* width: 350px; */
+  max-width: none;
 }
 
 .breadcrumb {
@@ -51,4 +56,19 @@ footer {
 .tombol {
   border: none;
   background-color: transparent;
+}
+
+.btn {
+  background-color: teal;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: darkcyan;
+  color: white;
+}
+
+.badge {
+  background-color: teal;
 }
